@@ -5,10 +5,17 @@ class AbcSocket(ABC):
     def create_socket(self):
         pass
 
+
     @abstractmethod
     def send_msg(self):
         pass
 
+
     @abstractmethod
     def rcv_msg(self):
+        pass
+
+
+    @abstractmethod
+    def close_socket(self):
         pass

@@ -15,6 +15,7 @@ def TCPconnect():
         finally:
             TCPserver.close()
 
+
 def UDPconnect():
     while True:
         try:
@@ -27,6 +28,7 @@ def UDPconnect():
         finally:
             UDPserver.close()
 
+
 def UDPloop_connect():
     while True:
         try:
@@ -38,6 +40,8 @@ def UDPloop_connect():
             UDPserver.sendto(f'Sup from UDPloop server {moment}'.encode(), addr)
         finally:
             UDPserver.close()
+
+
 def main():
     t1 = threading.Thread(target=TCPconnect)
     t2 = threading.Thread(target=UDPconnect)
