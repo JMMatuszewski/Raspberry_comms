@@ -1,6 +1,7 @@
 from protocol_lib import PROTOCOL
 from networking import Connect
 import threading
+from main_thread import main_thread
 
 def network_normal():
     while True:
@@ -34,16 +35,19 @@ def main():
           1. choose the communitaction protocol,
           2. write the message
           3. await response""")
-    
-    connect_loop = Connect("127.0.0.3",9997)
-    t1 = threading.Thread(target=network_normal)
-    t2 = threading.Thread(target=connect_loop.udp_loop)
 
-    t1.start()
-    t2.start()
+    t0 = threading.Thread(target=main_thread)
+    # connect_loop = Connect("127.0.0.3",9997)
+    # t1 = threading.Thread(target=network_normal)
+    # t2 = threading.Thread(target=connect_loop.udp_loop)
 
-    t1.join()
-    t2.join()
+    t0.start()
+    # t1.start()
+    # t2.start()
+
+    t0.join()
+    # t1.join()
+    # t2.join()
 
 if __name__ == "__main__":
     main()
