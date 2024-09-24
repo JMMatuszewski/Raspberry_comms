@@ -4,27 +4,46 @@ import socket
 from protocol_lib import PROTOCOL
 import msvcrt
 import time
+from pynput import keyboard
+#from pynput.keyboard import Key
 
 def main_thread():
 
     while True:
         
+        ### PROTOCOL UI ###
         print("Currently avalable protocols:")
         for key in PROTOCOL:
                 print(f'- {key}')
-        # protocol = input('Please input a protocol You want to use:\n')
-        protocol = "udp"
+        protocol = input('Please input a protocol You want to use:\n')
+        # protocol = "udp" // TEST
         protocol = protocol.upper()
         if protocol == "Q":
                 break
         elif protocol not in PROTOCOL:
                 print(f'protocol "{protocol}" is not available\n')
                 continue
-        # msg = input("Please write a short message:\n")
+
+        ### KEY LISTENER ###
+        #msg = input("Please write a short message:\n")
         print("Make a move: ")
-        char = str(msvcrt.getch().decode())
-        print(char)
-        
+        #if key 
+        #char = str(msvcrt.getch().decode())
+        char keyboard.Key.
+        print(ord(char))
+
+        #with keyboard.Listener()
+
+
+
+
+
+
+
+
+
+
+        #####################################################################
 
         # Basic way for chosing method of communication - for rework later.
 
