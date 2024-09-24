@@ -12,21 +12,22 @@ def main():
         ### PROTOCOL UI ###
         print("Currently avalable protocols:")
         for key in PROTOCOL:
-                print(f'- {key}')
-        #protocol = input('Please input a protocol You want to use:\n')
-        protocol = "udp" # TEST
+            print(f'- {key}')
+        protocol = input('Please input a protocol You want to use:\n')
+        # protocol = "udp" # TEST
         protocol = protocol.upper()
         if protocol == "Q":
-                break
+            break
         elif protocol not in PROTOCOL:
-                print(f'protocol "{protocol}" is not available\n')
-                continue
+            print(f'protocol "{protocol}" is not available\n')
+            continue
 
         ### KEY LISTENER ###
-        service = EventService(protocol)
-        service.listener_start()
-
-
+        try:
+            service = EventService(protocol)
+            service.listener_start()
+        except ConnectionRefusedError:
+            print("Socket was not created")
 
 
 

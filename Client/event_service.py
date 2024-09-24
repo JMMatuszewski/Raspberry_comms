@@ -27,8 +27,16 @@ class EventService:
 
 
     def on_press(self,key):
+        # try:
+            #self.sock.create_socket()
         self.sock.send_msg(str(key))
-        print(key)
+            #if self.protocol == 'TCP':
+        s = self.sock.rcv_msg()
+        print(s)
+            #self.sock.close_socket()
+        # except Exception as e:
+        #     print(e)
+        # print(key)
 
         #self.queue.put(key)
 

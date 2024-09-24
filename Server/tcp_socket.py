@@ -11,7 +11,7 @@ class TCPSocket(AbcSocket):
     def create_socket(self):
         self.TCPserver = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
         self.TCPserver.bind((self.ip,self.port))
-        self.TCPserver.listen(5)
+        self.TCPserver.listen()
         self.client, addr = self.TCPserver.accept()
 
 
