@@ -8,11 +8,8 @@ class TCPSocket(AbcSocket):
 
 
     def create_socket(self):
-        # try:
         self.TCPclient = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
         self.TCPclient.connect((self.ip,self.port))
-        # except Exception as e:
-        #     raise ValueError
 
 
     def send_msg(self,msg):

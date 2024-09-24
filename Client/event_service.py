@@ -16,9 +16,6 @@ class EventService:
             self.sock = TCPSocket(PROTOCOL[self.protocol]['ip'],PROTOCOL[self.protocol]['port'])
         self.sock.create_socket()
 
-        # self.keys = []
-        # self.queue = Queue()
-
     
     def listener_start(self):
         with keyboard.Listener(
@@ -27,23 +24,11 @@ class EventService:
 
 
     def on_press(self,key):
-        # try:
-            #self.sock.create_socket()
         self.sock.send_msg(str(key))
-            #if self.protocol == 'TCP':
+        #if self.protocol == 'TCP':
         s = self.sock.rcv_msg()
         print(s)
-            #self.sock.close_socket()
-        # except Exception as e:
-        #     print(e)
-        # print(key)
 
-        #self.queue.put(key)
 
-    
     def on_release(self,key):
         pass
-
-
-    # def key_out(self):
-    #     return self.queue.get()

@@ -26,40 +26,10 @@ def main():
         try:
             service = EventService(protocol)
             service.listener_start()
-        except ConnectionRefusedError:
-            print("Socket was not created")
-
-
-
-
-
-
-        #event_service = EventService()
-        #key = event_service.listener_start()
-        #print(key)
-        # while True:
-        #     key = event_service.key_out()
-        #     print(key)
-
-
-        #msg = input("Please write a short message:\n")
-        #print("Make a move: ")
-        #if key 
-        #char = str(msvcrt.getch().decode())
-        #char keyboard.Key.
-        #print(ord(char))
-
-        #with keyboard.Listener()
-    # print("""Welcome on the client side,
-    #       1. choose the communitaction protocol,
-    #       2. write the message
-    #       3. await response""")
-
-    # t0 = threading.Thread(target=main_thread)
-
-    # t0.start()
-
-    # t0.join()
+        #except ConnectionRefusedError:
+        except Exception as e:
+            #print(e)
+            print("Connection error")
 
 
 if __name__ == "__main__":
